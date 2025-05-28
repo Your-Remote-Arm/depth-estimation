@@ -1,34 +1,230 @@
-\documentclass[document]{llncs}
-\usepackage{graphicx}
-\usepackage{lipsum}
-\usepackage{float}
-\usepackage{url}
-\usepackage{hyperref}
-\usepackage{array}
-\usepackage{xcolor}
-\usepackage[skip=0pt]{caption}
-\raggedbottom
-\usepackage[
-  headheight=10pt,
-  headsep=10pt,
-  margin=1in
-]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --------------------------------------------------------
+% Tau
+% LaTeX Template
+% Version 2.4.4 (28/02/2025)
+%
+% Author: 
+% Guillermo Jimenez (memo.notess1@gmail.com)
+% 
+% License:
+% Creative Commons CC BY 4.0
+% --------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[9pt,a4paper,twocolumn,twoside]{tau-class/tau}
+\usepackage[english]{babel}
+
+%----------------------------------------------------------
+% TITLE
+%----------------------------------------------------------
+
+\journalname{Technical Documentation}
+\title{Depth Estimation: Technical Documentation}
+
+%----------------------------------------------------------
+% AUTHORS, AFFILIATIONS AND PROFESSOR
+%----------------------------------------------------------
+
+\author[a,1]{Aaron Rhim}
+\author[b,2]{Nathaniel Hawron}
+\author[c,3]{Zachrey Zhu}
+\author[d,4]{Marc Bondoger}
+\author[e,5]{Leo Kaiya}
+\author[f,6]{Axel Bendl}
+
+%----------------------------------------------------------
+
+\affil[a, b, c, d, e, f]{University of British Columbia}
+
+\professor{Dr. Warren Hare}
+
+%----------------------------------------------------------
+% FOOTER INFORMATION
+%----------------------------------------------------------
+
+\institution{University of British Columbia}
+\footinfo{\LaTeX\ Template}
+\theday{May 27, 2025} % latest update
+\leadauthor{Author last name et al.}
+\course{Creative Commons CC BY 4.0}
+
+%----------------------------------------------------------
+% ABSTRACT AND KEYWORDS
+%----------------------------------------------------------
+
+\begin{abstract}    
+    Welcome to tau ($\tau$) \LaTeX\ class designed especially for your lab reports or academic articles. 
+    In this example template, we will guide you through the process of using and customizing this document 
+    to your needs. For more information of this class check out the appendix section. There, you will find 
+    codes that define key aspects of the template, allowing you to explore and modify them. 
+\end{abstract}
+
+%----------------------------------------------------------
+
+\keywords{\LaTeX\ research report, academic article, tau class}
+
+%----------------------------------------------------------
 
 \begin{document}
-\title{Your Remote Arm - Research Phase}
-\author{Aaron Rhim \and
-Nathaniel Hawron\and
-Zachrey Zhu\and
-Leo Kaiya\and
-Axel Bendl}
+		
+    \maketitle 
+    \thispagestyle{firststyle} 
+    \tauabstract 
+    % \tableofcontents
+    % \linenumbers 
+    
+%----------------------------------------------------------
 
-\institute{University of British Columbia, British Columbia, Canada\\
-\email{rhimaaron@gmail.com} % add your email
-}
+\section{Introduction}
 
-\maketitle
+    \taustart{W}e must research what has been done in terms of the AI side of the research. This involves researching in different architectures 
+    that have been created and used and how we can incorporate any state-of-the-art models etc. Don't forget to document any
+    sources that you've found at the bottom of this document. We will eventually go through each source and note any that we used
+    and get rid of any that we didn't use. Feel free to use ChatGPT's Deep Research option. Will replace this 
+    paragraph with a true introduction at the end.
 
-% edit from here on after
+\section{Title}
 
-% break
+    The \verb*|\maketitle| command generates the title and author information section, including the professor name and affiliations. The title can be modified in tau-class/tau.cls/title style section. 
+	
+    By default, \textit{tau class} shows the title on the left. However, you can change \verb*|\raggedright| to \verb*|\centering| in \verb*|\titlepos| to move the title to the center or, modify it to your own preferences.
+	
+    In addition to the \verb|\title| command, a custom command named \verb|\journalname| has been added to include more information. 
+	
+    If you do not need this command, you can undefined it and the content will be adjusted automatically.
+	
+\section{Abstract}
+
+    The abstract and keywords are defined using the \verb*|\keywords| and \verb*|\begin{abstract} \end{abstract}| commands respectively. For the abstract to appear, make sure the \verb|\tauabstract| command is always included after the beginning of the document.
+    
+    If the keywords are not declared in the preamble, the content will be adjusted automatically.
+    
+\section{Document style options}
+
+    \subsection{Tau start}
+	
+        We included the \verb|\taustart{}| command, which provides a personalized lettrine for the beginning of a paragraph.
+
+    \subsection{Line numbering}
+	
+        By implementing the \textit{lineno} package, the line numbering of the document can be placed with the command \verb|\linenumbers|. 
+		
+        I recommend placing the command after the abstract and table of contents for a better appearance.
+		
+    \subsection{Table of contents}
+	
+        The \textit{tau class} provides a customized design for the table of contents. Each level of the ToC provides a preview of the content and its location in the document. 
+
+
+\section{Tables and figures}
+
+    \subsection{Tables}
+	
+        Table \ref{tab:table} shows an example table. The \verb|\tabletext{}| is used to add notes to tables easily. 
+    		
+        \begin{table}[H]
+            \centering
+            \caption{Astronomical Object Data}
+            \label{tab:table}
+            \begin{tabular}{ll}
+                \toprule
+                \textbf{Object} & \textbf{Distance (Light Years)} \\
+                \midrule
+                Alpha Centauri & 4.37 \\
+                Betelgeuse & 642.5 \\
+                Andromeda Galaxy & 2.537 million \\
+                \bottomrule   
+            \end{tabular}
+			
+            \tabletext{Note: The table contains data of some famous celestial objects.}
+			
+        \end{table}
+
+    \subsection{Figures}
+		
+    	Fig. \ref{fig:figure} shows an example figure.
+    		
+    	\begin{figure}[H]
+    		\centering
+    		\includegraphics[width=0.75\columnwidth]{Example.pdf}
+    		\caption{Example figure obtained from PGFPlots \cite{PFGPlots}.}
+    		\label{fig:figure}
+    	\end{figure}
+		
+        Fig. \ref{fig:examplefloat} shows an example of two figures that covers the width of the page. It can be placed at the top or bottom of the page. The space between the figures can also be changed using the \verb|\hspace{Xpt}| command.
+		
+        \begin{figure*}[tp] % t for position at the top of the current page; b for position at the bottom; p for new page
+		\centering
+		  \begin{subfigure}[b]{0.38\linewidth} % Fig (a)
+			\includegraphics[width=\linewidth]{Example2.pdf}
+			\caption{Example left figure.}
+			\label{fig:figa}
+		\end{subfigure}
+			\hspace{20pt}   % Space between the figures
+		\begin{subfigure}[b]{0.375\linewidth} % Fig (b)
+			\includegraphics[width=\linewidth]{Example3.pdf}
+			\caption{Example right figure.}
+			\label{fig:figb}
+		\end{subfigure}
+		\caption{Example figure that covers the width of the page obtained from PGFPlots \cite{PFGPlots}.}
+		\label{fig:examplefloat}
+	\end{figure*}
+		
+\section{Tau packages}
+
+    \subsection{Tauenvs}
+	
+        This template has its own environment package \textit{tauenvs.sty} designed to enhance the presentation of the document. Among these custom environments are \textit{tauenv}, \textit{info} and \textit{note}.
+		
+        There are two environments which have a predefined title. These can be included by the command \verb|\begin{note}| and \verb|\begin{info}|. All the environments have the same style.
+			
+        An example using the tau environment is shown below.
+		
+    	\begin{tauenv}[frametitle=Environment with custom title]
+            This is an example of the custom title environment. To add a title type \verb|[frametitle=Your title]| next to the beginning of the environment (as shown in this example).
+    	\end{tauenv}
+		
+        Tauenv is the only environment that you can customize its title. On the other hand, info and note adapt their title to Spanish automatically when this language package is defined.
+		
+    \subsection{Taubabel}
+
+        In previous versions, we included a package called \textit{taubabel}, which have all the commands that automatically translate from English to Spanish when this language package is defined. 
+        
+        By default, tau displays its content in English. However, at the beginning of the document you will find a recommendation when writing in Spanish. 
+		
+        \textit{Note:} You may modify this package if you want to use other language than English or Spanish. This will make easier to translate the document without having to modify the class document.
+		
+\section{Equation}
+
+    Equation \ref{ec:equation}, shows the Schrödinger equation as an example. 
+	\begin{equation} \label{ec:equation}
+		\frac{\hbar^2}{2m}\nabla^2\Psi + V(\mathbf{r})\Psi = -i\hbar \frac{\partial\Psi}{\partial t}
+	\end{equation} 
+    The \textit{amssymb} package was not necessary to include, because stix2 font incorporates mathematical symbols for writing quality equations. In case you choose another font, uncomment this package in tau-class/tau.cls/math packages.
+	
+    If you want to change the values that adjust the spacing above and below the equations, play with \verb|\setlength{\eqskip}{8pt}| value until the preferred spacing is set.
+	
+\section{Adding codes}
+	
+    This class\footnote{Hello there! I am a footnote :)} includes the \textit{listings} package, which offers customized features for adding codes in \LaTeX\ documents specifically for C, C++, \LaTeX\ and Matlab. 
+	
+    You can customize the format in tau-class/tau.cls/listings style.
+	
+    \lstinputlisting[caption=Example of Matlab code., language=Matlab,label=code]{example.m}
+	
+    If line numbering is defined at the beginning of the document, I recommend placing the command \verb|\nolinenumbers| at the start and \verb|\linenumbers| at the end of the code. 
+    
+    This will temporarily remove line numbering and the code will look better.
+	
+\section{References}
+
+    The default formatting for references follows the IEEE style. You can modify the style of your references. See appendix for more information.
+    
+%----------------------------------------------------------
+
+\printbibliography
+
+%----------------------------------------------------------
+
 \end{document}

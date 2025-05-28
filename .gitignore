@@ -6,10 +6,23 @@ MHResearch.out
 MHResearch.pdf
 MHResearch.synctex.gz
 
+template.tex
+template.aux
+template.fdb_latexmk
+template.fls
+template.log
+template.bbl
+template.bcf
+template.blg
+template.run.xml
+template.synctex.gz
+
 technical.aux
+technical.bbl
+technical.bcf
+technical.blg
 technical.fdb_latexmk
 technical.fls
 technical.log
-technical.out
-technical.pdf
+technical.run.xml
 technical.synctex.gz
